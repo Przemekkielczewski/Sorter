@@ -1,11 +1,15 @@
 package com.example.przemek.view;
 
+
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 public class BubbleSortView extends JFrame {
@@ -18,6 +22,8 @@ public class BubbleSortView extends JFrame {
 	private JTextField numberSix = new JTextField();
 	private JTextField numberSeven = new JTextField();
 	
+	private JRadioButton radioButton1 = new JRadioButton ("Ascending", true);
+	private JRadioButton radioButton2 = new JRadioButton ("Descending", false);
 	private JButton sortButton = new JButton("Sort Values");
 	
 	private JTextField sortedOne = new JTextField();
@@ -33,6 +39,8 @@ public class BubbleSortView extends JFrame {
 		JPanel inputPanel = new JPanel();
 		JPanel buttonPanel = new JPanel();
 		JPanel outputPanel = new JPanel();
+	
+		ButtonGroup buttonGroup = new ButtonGroup();
 		
 		this.setSize(350,300);
 		this.setTitle("Bubble Sorter v. 1.0");
@@ -47,7 +55,12 @@ public class BubbleSortView extends JFrame {
 		inputPanel.add(numberSix);
 		inputPanel.add(numberSeven);
 		
+		buttonGroup.add(radioButton1);
+		buttonGroup.add(radioButton2);
+		
 		buttonPanel.add(sortButton);
+		buttonPanel.add(radioButton1);
+		buttonPanel.add(radioButton2);
 		
 		outputPanel.setLayout(new GridLayout (7,1));
 		outputPanel.add(sortedOne);
@@ -118,6 +131,14 @@ public class BubbleSortView extends JFrame {
 	public void setSortedSeven (int value) {
 		this.sortedSeven.setText(Integer.toString(value));	
 		}
+	
+	public void addAscendingListener (ActionListener listenerForAscend) {
+		this.radioButton1.addActionListener(listenerForAscend);
+	}
+	
+	public void addDescendingListener (ActionListener listenerForDescend) {
+		this.radioButton2.addActionListener(listenerForDescend);
+	}
 	
 	public void addSortListener (ActionListener listenerForSort) {
 		this.sortButton.addActionListener(listenerForSort);

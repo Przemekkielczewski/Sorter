@@ -10,13 +10,32 @@ public class BubbleSortController {
 	
 	BubbleSortModel bubbleSortModel = new BubbleSortModel();
 	BubbleSortView bubbleSortView = new BubbleSortView();
+	int sortMethod = 0;
 	
 	public BubbleSortController(BubbleSortModel model, BubbleSortView view) {
 		this.bubbleSortModel = model;
 		this.bubbleSortView = view;
 		
+		this.bubbleSortView.addAscendingListener(new listenerForAscend());
+		this.bubbleSortView.addDescendingListener(new listenerForDescend());
 		this.bubbleSortView.addSortListener(new listenerForSort());
+		
 	}
+	class listenerForAscend implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			sortMethod = 0;	
+		}}
+	
+	class listenerForDescend implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			sortMethod = 1;	
+		}}
+	
+	
 	
 	class listenerForSort implements ActionListener {
 
@@ -37,7 +56,12 @@ public class BubbleSortController {
 			return;
 		}
 		
-		bubbleSortModel.Sort(numbersArray, 7);
+		if (sortMethod == 0) {
+		bubbleSortModel.SortAscending(numbersArray, 7);
+		}
+		else if (sortMethod == 1) {
+			bubbleSortModel.SortDescending(numbersArray, 7);	
+		}
 		
 		bubbleSortView.setSortedOne(numbersArray[0]);
 		bubbleSortView.setSortedTwo(numbersArray[1]);
