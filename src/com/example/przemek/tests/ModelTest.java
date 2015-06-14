@@ -11,7 +11,7 @@ public class ModelTest {
 	BubbleSortModel model = new BubbleSortModel();
 	
 	@Test
-	public void testSortDescending() {
+	public void testSortAscending() {
 		int [] testArray = new int [] {2,5,1,7,12,9,8};
 		model.SortAscending(testArray, 7);
 		assertTrue("first value incorrect",testArray[0] == 1);
@@ -25,7 +25,7 @@ public class ModelTest {
 	}
 	
 	@Test
-	public void testSortAscending() {
+	public void testSortDescending() {
 		int [] testArray = new int [] {2,5,1,7,12,9,8};
 		model.SortDescending(testArray, 7);
 		assertTrue("first value incorrect",testArray[0] == 12);
@@ -38,7 +38,7 @@ public class ModelTest {
 	}
 	
 	@Test
-	public void testSortDescSame() {
+	public void testSortAscSame() {
 		int [] testArray = new int [] {2,5,5,5,5,9,8};
 		model.SortAscending(testArray, 7);
 		assertTrue("first value incorrect",testArray[0] == 2);
@@ -51,7 +51,7 @@ public class ModelTest {
 	}
 		
 	@Test
-	public void testSortAscSame() {
+	public void testSortDescSame() {
 		int [] testArray = new int [] {2,5,5,5,5,9,8};
 		model.SortDescending(testArray, 7);
 		assertTrue("first value incorrect",testArray[0] == 9);
@@ -64,7 +64,7 @@ public class ModelTest {
 	}
 	
 	@Test
-	public void testSortDescBorder() {
+	public void testSortAscBorder() {
 		int [] testArray = new int [] {2,5,3,7,12,9,1};
 		model.SortAscending(testArray, 7);
 		assertTrue("first value incorrect",testArray[0] == 1);
@@ -77,7 +77,7 @@ public class ModelTest {
 	}
 	
 	@Test
-	public void testSortAscBorder() {
+	public void testSortDescBorder() {
 		int [] testArray = new int [] {1,5,3,7,12,9,8};
 		model.SortDescending(testArray, 7);
 		assertTrue("first value incorrect",testArray[0] == 12);
@@ -90,7 +90,7 @@ public class ModelTest {
 	}
 	
 	@Test
-	public void testSortDescCorrect() {
+	public void testSortAscCorrect() {
 		int [] testArray = new int [] {1,2,3,5,7,9,12};
 		model.SortAscending(testArray, 7);
 		assertTrue("first value incorrect",testArray[0] == 1);
@@ -103,7 +103,7 @@ public class ModelTest {
 	}
 	
 	@Test
-	public void testSortAscCorrect() {
+	public void testSortDescCorrect() {
 		int [] testArray = new int [] {12,9,8,7,5,3,1};
 		model.SortDescending(testArray, 7);
 		assertTrue("first value incorrect",testArray[0] == 12);
@@ -116,7 +116,7 @@ public class ModelTest {
 	}
 	
 	@Test
-	public void testSortDescZero() {
+	public void testSortAscZero() {
 		int [] testArray = new int [] {0,0,0,0,0,0,0};
 		model.SortAscending(testArray, 7);
 		assertTrue("first value incorrect",testArray[0] == 0);
@@ -126,20 +126,6 @@ public class ModelTest {
 		assertTrue("fifth value incorrect",testArray[4] == 0);
 		assertTrue("sixth value incorrect",testArray[5] == 0);
 		assertTrue("seventh value incorrect",testArray[6] == 0);
-	}
-	
-	@Test
-	public void testSortNegDescending() {
-		int [] testArray = new int [] {-2,-5,-1,-7,-12,-9,-8};
-		model.SortDescending(testArray, 7);
-		assertTrue("first value incorrect",testArray[0] == -1);
-		assertTrue("second value incorrect",testArray[1] == -2);
-		assertTrue("third value incorrect",testArray[2] == -5);
-		assertTrue("fourth value incorrect",testArray[3] == -7);
-		assertTrue("fifth value incorrect",testArray[4] == -8);
-		assertTrue("sixth value incorrect",testArray[5] == -9);
-		assertTrue("seventh value incorrect",testArray[6] == -12);
-		
 	}
 	
 	@Test
@@ -155,6 +141,18 @@ public class ModelTest {
 		assertTrue("seventh value incorrect",testArray[6] == -1);
 	}
 	
-	
+	@Test
+	public void testSortNegDescending() {
+		int [] testArray = new int [] {-2,-5,-1,-7,-12,-9,-8};
+		model.SortDescending(testArray, 7);
+		assertTrue("first value incorrect",testArray[0] == -1);
+		assertTrue("second value incorrect",testArray[1] == -2);
+		assertTrue("third value incorrect",testArray[2] == -5);
+		assertTrue("fourth value incorrect",testArray[3] == -7);
+		assertTrue("fifth value incorrect",testArray[4] == -8);
+		assertTrue("sixth value incorrect",testArray[5] == -9);
+		assertTrue("seventh value incorrect",testArray[6] == -12);
+		
+	}
 
 }
